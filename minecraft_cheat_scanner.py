@@ -770,6 +770,267 @@ CHEAT_MODULES_WORLD = [
     b"SeedCracker", b"Seed Cracker", b"seedcracker",
 ]
 
+OBFUSCATION_INDICATORS = [
+    b"EncryptedString", b"encryptedstring",
+    b"StringEncrypter", b"String Encrypter", b"stringencrypter",
+    b"StringObfuscator", b"String Obfuscator", b"stringobfuscator",
+    b"ClassObfuscator", b"Class Obfuscator", b"classobfuscator",
+    b"MethodObfuscator", b"Method Obfuscator", b"methodobfuscator",
+    b"FieldObfuscator", b"Field Obfuscator", b"fieldobfuscator",
+    b"ZKM", b"ZelixKlassMaster", b"zelixklassmaster",
+    b"ProGuard", b"proguard",
+    b"allatori", b"Allatori",
+    b"DashO", b"dasho",
+    b"JShrink", b"jshrink",
+    b"RetroGuard", b"retroguard",
+    b"JObfuscator", b"jobfuscator",
+    b"BinPress", b"binpress",
+    b"Stringer", b"stringer-obf",
+    b"DexGuard", b"dexguard",
+    b"ClassFinalizer", b"classfinalizer",
+    b"AntiDecompiler", b"Anti Decompiler", b"antidecompiler",
+    b"AntiDebug", b"Anti Debug", b"antidebug",
+    b"AntiDump", b"Anti Dump", b"antidump",
+    b"AntiTamper", b"Anti Tamper", b"antitamper",
+    b"IntegrityCheck", b"Integrity Check", b"integritycheck",
+    b"TamperCheck", b"Tamper Check", b"tampercheck",
+    b"NativeObfuscator", b"Native Obfuscator", b"nativeobfuscator",
+    b"JNIObfuscator", b"JNI Obfuscator", b"jniobfuscator",
+    b"NativeWrapper", b"Native Wrapper", b"nativewrapper",
+    b"LibraryLoader", b"libraryloader-obf",
+    b"JNILoader", b"jniloader-obf",
+    b"ObfuscatedName", b"obfuscatedname",
+    b"Deobfuscator", b"Deobfuscator", b"deobfuscator",
+    b"RuntimeDecryption", b"Runtime Decryption", b"runtimedecryption",
+    b"RuntimeDecompiler", b"Runtime Decompiler", b"runtimedecompiler",
+    b"ClassTransformer", b"classtransformer-obf",
+    b"BytecodeEncryptor", b"Bytecode Encryptor", b"bytecodeencryptor",
+    b"BytecodeObfuscator", b"Bytecode Obfuscator", b"bytecodeobfuscator",
+    b"CodeEncryption", b"Code Encryption", b"codeencryption",
+    b"CodeVirtualization", b"Code Virtualization", b"codevirtualization",
+    b"ControlFlowObfuscation", b"Control Flow Obfuscation",
+    b"ReferenceObfuscation", b"Reference Obfuscation",
+    b"NumberObfuscation", b"Number Obfuscation",
+    b"ResourceEncryption", b"Resource Encryption",
+    b"StringPoolEncryption", b"String Pool Encryption",
+    b"ReflectionObfuscation", b"Reflection Obfuscation",
+    b"InvokeDynamic", b"invokedynamic-obf",
+    b"LambdaFactory", b"lambdafactory-obf",
+    b"HiddenClass", b"hiddenclass-obf",
+    b"MethodHandle", b"methodhandle-obf",
+    b"VarHandle", b"varhandle-obf",
+    b"UnsafeAccess", b"unsafeaccess-obf",
+    b"sun.misc.Unsafe", b"sun/misc/Unsafe",
+    b"FieldAccessor", b"fieldaccessor-obf",
+    b"ReflectionAccess", b"reflectionaccess-obf",
+    b"setAccessible", b"setAccessible-obf",
+    b"getDeclaredField", b"getDeclaredField-obf",
+    b"ClassLoaderHack", b"ClassLoader Hack", b"classloaderhack",
+    b"CustomClassLoader", b"Custom ClassLoader", b"customclassloader",
+    b"ModuleHack", b"Module Hack", b"modulehack",
+    b"AddOpensHack", b"Add Opens Hack", b"addopenshack",
+    b"AddExportsHack", b"Add Exports Hack", b"addexportshack",
+    b"JVMHack", b"JVM Hack", b"jvmhack",
+    b"UnsafeFieldOffset", b"unsafefieldoffset",
+    b"UnsafePutLong", b"unsafeputlong",
+    b"UnsafeGetObject", b"unsafegetobject",
+    b"UnsafeAllocateInstance", b"unsafeallocateinstance",
+    b"ReflectionHack", b"Reflection Hack", b"reflectionhack",
+]
+
+MIXIN_BYTECODE_PATTERNS = [
+    b"org.spongepowered.asm.mixin", b"org/spongepowered/asm/mixin",
+    b"MixinMinecraftClient", b"mixinminecraftclient",
+    b"MixinEntityPlayer", b"mixinentityplayer",
+    b"MixinC06PacketPlayer", b"mixinpacketplayer",
+    b"MixinNetworkManager", b"mixinnetworkmanager",
+    b"MixinRenderManager", b"mixinrendermanager",
+    b"MixinPlayerControllerMP", b"mixinplayercontroller",
+    b"MixinEntityRenderer", b"mixinentityrenderer",
+    b"MixinBlock", b"mixinblock",
+    b"MixinItemStack", b"mixinitemstack",
+    b"MixinWorld", b"mixinworld",
+    b"MixinChunk", b"mixinchunk",
+    b"MixinTileEntity", b"mixintileentity",
+    b"MixinGuiScreen", b"mixinguiscreen",
+    b"MixinGuiIngame", b"mixinguiingame",
+    b"@Inject", b"@Redirect", b"@ModifyArg", b"@ModifyArgs",
+    b"@ModifyConstant", b"@ModifyVariable", b"@At",
+    b"MixinConnector", b"mixinconnector",
+    b"IMixin", b"imixin",
+    b"MixinTransformer", b"mixintransformer",
+    b"MixinBootstrap", b"mixinbootstrap",
+    b"MixinPlatformAgent", b"mixinplatformagent",
+    b"MixinConfig", b"mixinconfig",
+    b"MixinEnvironment", b"mixinenvironment",
+    b"MixinService", b"mixinservice",
+    b"MixinApplicator", b"mixinapplicator",
+    b"IClassTransformer", b"classtransformer-mixin",
+    b"TransformingClassLoader", b"transformingclassloader",
+    b"LaunchClassLoader", b"launchclassloader",
+    b"net.minecraftforge.fml.common.asm", b"fmlcommonasm",
+    b" FMLCorePlugin", b"fmlcoreplugin",
+    b"coremodlocation", b"coremod",
+    b"IFMLLoadingPlugin", b"ifmlloadingplugin",
+    b"ModClassLoader", b"modclassloader",
+    b"ModTransformer", b"modtransformer",
+    b"AccessTransformer", b"accesstransformer",
+    b"deobfTransformer", b"deobftransformer",
+    b"ClassPatchManager", b"classpatchmanager",
+    b"PatchTransformer", b"patchtransformer",
+]
+
+EVENT_BUS_PATTERNS = [
+    b"EventBus", b"eventbus",
+    b"EventManager", b"eventmanager",
+    b"@Subscribe", b"@EventHandler", b"@EventListener",
+    b"onMotion", b"onPacket", b"onTick", b"onUpdate",
+    b"onRender", b"onRender2D", b"onRender3D",
+    b"onAttack", b"onBlockBreak", b"onBlockPlace",
+    b"onChat", b"onDeath", b"onJoin", b"onQuit",
+    b"onDamage", b"onHeal", b"onTeleport",
+    b"onMove", b"onJump", b"onFall", b"onLand",
+    b"onUseItem", b"onInteract", b"onEntityUse",
+    b"onPacketSend", b"onPacketReceive",
+    b"onKeyInput", b"onMouseInput",
+    b"onWorldLoad", b"onWorldUnload",
+    b"onConnect", b"onDisconnect",
+    b"onPlayerAttack", b"onPlayerDeath",
+    b"onEntitySpawn", b"onEntityDespawn",
+    b"onBlockUpdate", b"onChunkLoad",
+    b"PreMotionEvent", b"premotionevent",
+    b"PostMotionEvent", b"postmotionevent",
+    b"MotionEvent", b"motionevent",
+    b"PacketEvent", b"packetevent",
+    b"RenderEvent", b"renderevent",
+    b"TickEvent", b"tickevent",
+    b"UpdateEvent", b"updateevent",
+    b"KeyEvent", b"keyevent",
+    b"AttackEvent", b"attackevent",
+    b"BlockBreakEvent", b"blockbreakevent",
+    b"BlockPlaceEvent", b"blockplaceevent",
+    b"ChatEvent", b"chatevent",
+    b"DamageEvent", b"damageevent",
+    b"DeathEvent", b"deathevent",
+    b"MoveEvent", b"moveevent",
+    b"InteractEvent", b"interactevent",
+    b"ConnectEvent", b"connectevent",
+    b"DisconnectEvent", b"disconnectevent",
+    b"PlayerAttackEvent", b"playerattackevent",
+    b"EntitySpawnEvent", b"entityspawnevent",
+]
+
+ROTATION_AIM_PATTERNS = [
+    b"RotationManager", b"rotationmanager",
+    b"RotatorManager", b"rotatormanager",
+    b"SilentRotation", b"silentrotation",
+    b"RotationHack", b"rotationhack",
+    b"AimProcessor", b"aimprocessor",
+    b"RotationProcessor", b"rotationprocessor",
+    b"TargetProcessor", b"targetprocessor",
+    b"RotationUtil", b"rotationutil",
+    b"RotationHelper", b"rotationhelper",
+    b"AimHelper", b"aimhelper",
+    b"TargetHelper", b"targethelper",
+    b"FaceTarget", b"facetarget",
+    b"FaceEntity", b"faceentity",
+    b"FaceBlock", b"faceblock",
+    b"LookTarget", b"looktarget",
+    b"SetRotation", b"setrotation",
+    b"GetRotation", b"getrotation",
+    b"RotationVector", b"rotationvector",
+    b"YawLock", b"yawlock",
+    b"PitchLock", b"pitchlock",
+    b"SilentAim", b"silentaim",
+    b"SilentLook", b"silentlook",
+    b"RotationSnap", b"rotationsnap",
+    b"RotationSmooth", b"rotationsmooth",
+    b"RotationLerp", b"rotationlerp",
+    b"RotationSlerp", b"rotationslerp",
+    b"RotationInterpolate", b"rotationinterpolate",
+    b"AngleHelper", b"anglehelper",
+    b"AngleCalculator", b"anglecalculator",
+    b"DistanceCalc", b"distancecalc",
+    b"TargetDistance", b"targetdistance",
+    b"PredictMovement", b"predictmovement",
+    b"MovementPredict", b"movementpredict",
+    b"TargetPredict", b"targetpredict",
+    b"VelocityPredict", b"velocitypredict",
+    b"PositionPredict", b"positionpredict",
+    b"HitPredict", b"hitpredict",
+    b"ClickSimulator", b"clicksimulator",
+    b"AttackSimulator", b"attacksimulator",
+]
+
+PACKET_MANIPULATION_PATTERNS = [
+    b"PacketSend", b"packetsend",
+    b"PacketReceive", b"packetreceive",
+    b"PacketCancel", b"packetcancel",
+    b"PacketModify", b"packetmodify",
+    b"PacketEvent", b"packetevent",
+    b"PacketInterceptor", b"packetinterceptor",
+    b"PacketHandler", b"packethandler",
+    b"PacketManager", b"packetmanager",
+    b"PacketUtil", b"packetutil",
+    b"PacketHelper", b"packethelper",
+    b"PacketSpoof", b"packetspoof",
+    b"PacketDelay", b"packetdelay",
+    b"PacketDrop", b"packetdrop",
+    b"PacketQueue", b"packetqueue",
+    b"PacketBuffer", b"packetbuffer",
+    b"PacketEncoder", b"packetencoder",
+    b"PacketDecoder", b"packetdecoder",
+    b"PacketSerializer", b"packetserializer",
+    b"PacketDeserializer", b"packetdeserializer",
+    b"SendPacket", b"sendpacket",
+    b"ReceivePacket", b"receivepacket",
+    b"CancelPacket", b"cancelpacket",
+    b"ModifyPacket", b"modifypacket",
+    b"InjectPacket", b"injectpacket",
+    b"ChannelHandler", b"channelhandler",
+    b"ChannelInterceptor", b"channelinterceptor",
+    b"ChannelPipeline", b"channelpipeline",
+    b"NettyInterceptor", b"nettyinterceptor",
+    b"NetworkManager", b"networkmanager-hack",
+    b"ConnectionMixin", b"connectionmixin",
+    b"ClientConnection", b"clientconnection-hack",
+    b"PacketC00", b"PacketC01", b"PacketC02", b"PacketC03",
+    b"PacketC04", b"PacketC05", b"PacketC06",
+    b"PacketC07", b"PacketC08", b"PacketC09",
+    b"PacketC0A", b"PacketC0B", b"PacketC0C",
+    b"PacketC0D", b"PacketC0E", b"PacketC0F",
+    b"PacketC10", b"PacketC11", b"PacketC12",
+    b"PacketC13", b"PacketC14", b"PacketC15",
+    b"PacketC16", b"PacketC17",
+    b"PacketS00", b"PacketS01", b"PacketS02", b"PacketS03",
+    b"PacketS04", b"PacketS05", b"PacketS06",
+    b"PacketS07", b"PacketS08", b"PacketS09",
+    b"PacketS0A", b"PacketS0B", b"PacketS0C",
+    b"PacketS0D", b"PacketS0E", b"PacketS0F",
+    b"PacketS10", b"PacketS12", b"PacketS13",
+    b"PacketS14", b"PacketS15", b"PacketS16",
+    b"PacketS17", b"PacketS18", b"PacketS19",
+    b"PacketS1A", b"PacketS1B", b"PacketS1C",
+    b"PacketS1D", b"PacketS1E", b"PacketS1F",
+    b"PacketS20", b"PacketS21", b"PacketS22",
+    b"PacketS23", b"PacketS24", b"PacketS25",
+    b"PacketS26", b"PacketS27", b"PacketS28",
+    b"PacketS29", b"PacketS2A", b"PacketS2B",
+    b"PacketS2C", b"PacketS2D", b"PacketS2E",
+    b"PacketS2F", b"PacketS30", b"PacketS31",
+    b"PacketS32", b"PacketS33", b"PacketS34",
+    b"PacketS35", b"PacketS36", b"PacketS37",
+    b"PacketS38", b"PacketS39", b"PacketS3A",
+    b"PacketS3B", b"PacketS3C", b"PacketS3D",
+    b"PacketS3E", b"PacketS3F",
+    b"PacketS40", b"PacketS41", b"PacketS42",
+    b"PacketS43", b"PacketS44", b"PacketS45",
+    b"PacketS46", b"PacketS47", b"PacketS48",
+    b"PacketS49", b"PacketS4A", b"PacketS4B",
+    b"PacketS4C", b"PacketS4D", b"PacketS4E",
+    b"PacketS4F",
+]
+
 CHEAT_MODULE_CATEGORIES = {
     "COMBAT": CHEAT_MODULES_COMBAT,
     "CRYSTAL_ANCHOR": CHEAT_MODULES_CRYSTAL_ANCHOR,
@@ -848,6 +1109,11 @@ ALL_SCAN_CATEGORIES = {
     "CHEAT_MODULE_ESP_VISION": CHEAT_MODULES_ESP_VISION,
     "CHEAT_MODULE_EVASION": CHEAT_MODULES_EVASION,
     "CHEAT_MODULE_WORLD": CHEAT_MODULES_WORLD,
+    "OBFUSCATION": OBFUSCATION_INDICATORS,
+    "MIXIN_BYTECODE": MIXIN_BYTECODE_PATTERNS,
+    "EVENT_BUS": EVENT_BUS_PATTERNS,
+    "ROTATION_AIM": ROTATION_AIM_PATTERNS,
+    "PACKET_MANIPULATION": PACKET_MANIPULATION_PATTERNS,
     "CHEAT_INJECTOR": CHEAT_INJECTORS,
     "CHEAT_CONFIG": CHEAT_CONFIG_SIGNATURES,
     "MINECRAFT_IDENTIFIER": MINECRAFT_IDENTIFIERS,
@@ -922,6 +1188,14 @@ _STRING_KEYWORDS = frozenset([
     "automace", "stunslam", "maceswap", "safeanchor", "safecart",
     "tunnelbasefinder", "lightfinder", "lightesp", "lightdebug",
     "fakescoreboard", "donut",
+    "encryptedstring", "stringobfuscator", "bytecodeobfuscator",
+    "antidecompiler", "antidebug", "antidump", "antitamper",
+    "runtimeencryption", "codevirtualization", "nativeobfuscator",
+    "reflectionhack", "classloaderhack", "jvmhack",
+    "spongepowered.mixin", "mixintransformer", "launchclassloader",
+    "iclasstransformer", "premotionevent", "postmotionevent",
+    "rotationmanager", "silentrotation", "aimprocessor",
+    "packetinterceptor", "packetcancel", "packetspoof",
 ])
 
 _KW_SORTED = sorted(_STRING_KEYWORDS, key=len, reverse=True)
@@ -1558,24 +1832,28 @@ def assess_threat_level(scan_result, suspicious_modules=None, proc_info=None):
             "level": "CRITICAL",
             "score": 100,
             "reasons": ["Argon Client detected"],
+            "confidence": "High",
         }
     if argon_selfdestructed:
         return {
             "level": "CRITICAL",
             "score": 100,
             "reasons": ["Argon Client detected (Self-Destructed)"],
+            "confidence": "High",
         }
     if doomsday_active:
         return {
             "level": "CRITICAL",
             "score": 100,
             "reasons": ["DoomsdayClient detected"],
+            "confidence": "High",
         }
     if theseus_in_cmdline:
         return {
             "level": "CRITICAL",
             "score": 100,
             "reasons": ["DoomsdayClient detected (Self-Destructed)"],
+            "confidence": "High",
         }
 
     injection_categories = [
@@ -1733,6 +2011,131 @@ def assess_threat_level(scan_result, suspicious_modules=None, proc_info=None):
         if len(unique_modules) > 5:
             score += 15
 
+    # Obfuscation detection scoring
+    obf_hits = scan_result.found_patterns.get("OBFUSCATION", [])
+    if obf_hits:
+        unique_obf = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in obf_hits)
+        high_risk_obf = {
+            "EncryptedString", "encryptedstring",
+            "StringEncrypter", "stringencrypter",
+            "StringObfuscator", "stringobfuscator",
+            "BytecodeEncryptor", "bytecodeencryptor",
+            "BytecodeObfuscator", "bytecodeobfuscator",
+            "CodeEncryption", "codeencryption",
+            "CodeVirtualization", "codevirtualization",
+            "NativeObfuscator", "nativeobfuscator",
+            "JNIObfuscator", "jniobfuscator",
+            "AntiDecompiler", "antidecompiler",
+            "AntiDebug", "antidebug",
+            "AntiDump", "antidump",
+            "AntiTamper", "antitamper",
+            "RuntimeDecryption", "runtimedecryption",
+            "ReflectionHack", "reflectionhack",
+            "ClassLoaderHack", "classloaderhack",
+            "JVMHack", "jvmhack",
+            "sun.misc.Unsafe", "sun/misc/Unsafe",
+            "UnsafeAllocateInstance", "unsafeallocateinstance",
+        }
+        high_risk_obf_found = unique_obf & high_risk_obf
+        if high_risk_obf_found:
+            score += 25
+            reasons.append(f"Obfuscation / anti-analysis detected: {', '.join(sorted(high_risk_obf_found))}")
+        elif len(unique_obf) >= 3:
+            score += 10
+            reasons.append(f"Obfuscation indicators found: {len(unique_obf)} unique")
+
+    # Mixin / Bytecode manipulation scoring
+    mixin_hits = scan_result.found_patterns.get("MIXIN_BYTECODE", [])
+    if mixin_hits:
+        unique_mixin = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in mixin_hits)
+        high_risk_mixin = {
+            "org.spongepowered.asm.mixin", "org/spongepowered/asm/mixin",
+            "MixinMinecraftClient", "MixinEntityPlayer",
+            "MixinNetworkManager", "MixinPlayerControllerMP",
+            "MixinEntityRenderer", "MixinC06PacketPlayer",
+            "IClassTransformer", "LaunchClassLoader",
+            "IFMLLoadingPlugin", "ClassPatchManager",
+        }
+        high_risk_mixin_found = unique_mixin & high_risk_mixin
+        if high_risk_mixin_found:
+            score += 20
+            reasons.append(f"Mixin / bytecode manipulation detected: {', '.join(sorted(high_risk_mixin_found))}")
+        elif len(unique_mixin) >= 3:
+            score += 8
+            reasons.append(f"Mixin framework indicators: {len(unique_mixin)} unique")
+
+    # Event Bus scoring — cheat clients always register custom event handlers
+    event_hits = scan_result.found_patterns.get("EVENT_BUS", [])
+    if event_hits:
+        unique_events = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in event_hits)
+        cheat_event_patterns = {
+            "PreMotionEvent", "PostMotionEvent", "MotionEvent",
+            "PacketEvent", "AttackEvent", "RenderEvent",
+            "onMotion", "onPacket", "onAttack",
+            "onPacketSend", "onPacketReceive",
+            "@Subscribe", "@EventHandler",
+        }
+        cheat_events_found = unique_events & cheat_event_patterns
+        if cheat_events_found:
+            score += 15
+            reasons.append(f"Cheat event bus / handler patterns: {', '.join(sorted(cheat_events_found))}")
+        elif len(unique_events) >= 5:
+            score += 5
+            reasons.append(f"Event handler patterns: {len(unique_events)} unique")
+
+    # Rotation / Aim scoring — advanced clients use rotation managers
+    rotation_hits = scan_result.found_patterns.get("ROTATION_AIM", [])
+    if rotation_hits:
+        unique_rot = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in rotation_hits)
+        high_risk_rot = {
+            "RotationManager", "RotatorManager",
+            "SilentRotation", "RotationHack",
+            "AimProcessor", "RotationProcessor",
+            "SilentAim", "SilentLook",
+            "YawLock", "PitchLock",
+        }
+        high_risk_rot_found = unique_rot & high_risk_rot
+        if high_risk_rot_found:
+            score += 20
+            reasons.append(f"Rotation / aim manipulation detected: {', '.join(sorted(high_risk_rot_found))}")
+        elif len(unique_rot) >= 3:
+            score += 8
+            reasons.append(f"Rotation / aim indicators: {len(unique_rot)} unique")
+
+    # Packet manipulation scoring
+    packet_hits = scan_result.found_patterns.get("PACKET_MANIPULATION", [])
+    if packet_hits:
+        unique_pkt = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in packet_hits)
+        high_risk_pkt = {
+            "PacketInterceptor", "PacketCancel", "PacketModify",
+            "PacketSpoof", "CancelPacket", "ModifyPacket",
+            "InjectPacket", "ChannelInterceptor",
+            "NettyInterceptor",
+        }
+        high_risk_pkt_found = unique_pkt & high_risk_pkt
+        if high_risk_pkt_found:
+            score += 20
+            reasons.append(f"Packet manipulation detected: {', '.join(sorted(high_risk_pkt_found))}")
+        elif len(unique_pkt) >= 5:
+            score += 8
+            reasons.append(f"Packet handling indicators: {len(unique_pkt)} unique")
+
+    # Obfuscation boost — if obfuscation is present AND other cheat patterns found, boost score
+    obf_present = bool(scan_result.found_patterns.get("OBFUSCATION", []))
+    if obf_present and score >= 20:
+        score += 10
+        reasons.append("Obfuscation boost: cheat patterns combined with obfuscation increase suspicion")
+
+    # EncryptedString override — if EncryptedString found but no known client matched, warn
+    enc_str_hits = scan_result.found_patterns.get("OBFUSCATION", [])
+    has_encrypted_string = any(
+        "encryptedstring" in (h.get("pattern", b"").decode("ascii", "replace").lower() if isinstance(h.get("pattern"), bytes) else h.get("pattern", "").lower())
+        for h in enc_str_hits
+    )
+    if has_encrypted_string and not argon_active and not argon_selfdestructed and not doomsday_active:
+        score += 15
+        reasons.append("EncryptedString detected — possible obfuscated cheat client (e.g. Argon variant)")
+
     serious_strings = [s for s in scan_result.found_strings
                        if any(kw in s["string"].lower() for kw in [
                            "killaura", "aimbot", "vape", "wurst", "selfdestruct", "self-destruct",
@@ -1743,6 +2146,19 @@ def assess_threat_level(scan_result, suspicious_modules=None, proc_info=None):
     if serious_strings:
         score += 10
         reasons.append(f"Cheat-relevant strings: {len(serious_strings)}")
+
+    # Confidence level calculation
+    total_unique_patterns = 0
+    for cat_hits in scan_result.found_patterns.values():
+        total_unique_patterns += len(set(h["pattern"] for h in cat_hits))
+    if total_unique_patterns >= 15:
+        confidence = "High"
+    elif total_unique_patterns >= 8:
+        confidence = "Medium"
+    elif total_unique_patterns >= 3:
+        confidence = "Low"
+    else:
+        confidence = "Very Low"
 
     if score >= 70:
         level = "CRITICAL"
@@ -1757,8 +2173,9 @@ def assess_threat_level(scan_result, suspicious_modules=None, proc_info=None):
 
     return {
         "level": level,
-        "score": score,
+        "score": min(score, 100),
         "reasons": reasons,
+        "confidence": confidence,
     }
 
 
@@ -1792,6 +2209,8 @@ def generate_report(proc_info, scan_result, threat):
     print_separator("THREAT ASSESSMENT", "-", color=YELLOW)
     color = THREAT_COLORS.get(threat["level"], "")
     add(f"  {BOLD}Threat Level:{RESET}  {color}{BOLD}{threat['level']} (Score: {threat['score']}){RESET}")
+    if threat.get("confidence"):
+        add(f"  {BOLD}Confidence:{RESET}     {threat['confidence']}")
     add()
     if threat["reasons"]:
         add(f"  {BOLD}Reasons:{RESET}")
