@@ -1,10 +1,21 @@
 # Yumiko Memory Analyzer
 
+<p align="center">
+  <strong>Advanced Minecraft Cheat Detection via Memory Analysis</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/version-2.1-blue" alt="Version 2.1">
+  <img src="https://img.shields.io/badge/platform-windows-lightgrey" alt="Windows">
+  <img src="https://img.shields.io/badge/python-3.8+-green" alt="Python 3.8+">
+  <img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="MIT License">
+</p>
+
 ---
 
 ## Overview
 
-**Yumiko Memory Analyzer** is a Windows-based tool that scans Minecraft Java process memory to detect cheat clients, cheat modules, injection APIs, and evasion techniques. It uses the Aho-Corasick algorithm for high-performance multi-pattern matching across both ASCII and UTF-16 encoded strings.
+**Yumiko Memory Analyzer** is a Windows-based tool that scans Minecraft Java process memory to detect cheat clients, cheat modules, injection APIs, obfuscation techniques, and evasion methods. It uses the Aho-Corasick algorithm for high-performance multi-pattern matching across both ASCII and UTF-16 encoded strings.
 
 Unlike file-based scanners, Yumiko operates on live process memory — meaning it can detect cheats that try to hide or obfuscate their on-disk presence. Even cheat clients that attempt to self-destruct leave traces in memory and the JVM command line that Yumiko can identify.
 
@@ -17,6 +28,13 @@ Unlike file-based scanners, Yumiko operates on live process memory — meaning i
 - **Self-destruct awareness** — distinguishes between active and self-destructed cheat clients
 - **Special DoomsdayClient handling** — suppresses all flags and shows only `DoomsdayClient detected` for clean reporting
 - **Argon Client detection** — full support including `EncryptedString` XOR cipher and self-destruct via JNA memory purge
+- **Mixin / Bytecode detection** — identifies SpongePowered Mixin framework, Forge CoreMods, and class transformation infrastructure
+- **Event Bus detection** — detects cheat client event systems (PreMotionEvent, PacketEvent, @Subscribe, onMotion, etc.)
+- **Rotation / Aim detection** — identifies rotation managers, silent aim, and aim processors used by advanced clients
+- **Packet Manipulation detection** — detects packet interception, modification, spoofing, and Netty channel manipulation
+- **Obfuscation detection** — identifies string/code obfuscation, anti-analysis tools, and reflection/unsafe hacks
+- **Confidence Level** — rates detection confidence (High / Medium / Low / Very Low) based on unique pattern count
+- **Obfuscation boost** — increases threat score when obfuscation is combined with other cheat patterns
 - **Injection API detection** — identifies process, window, memory, and execution injection techniques
 - **Threat scoring** — assigns CLEAN / LOW / MEDIUM / HIGH / CRITICAL levels with detailed reasons
 - **Live monitoring** — continuous scanning with configurable interval
@@ -110,6 +128,12 @@ Patterns are compiled into an Aho-Corasick automaton for simultaneous multi-patt
 | `CHEAT_MODULE_UTILITY` | AutoEat, ChestStealer, AutoSell, etc. |
 | `CHEAT_MODULE_ESP_VISION` | PlayerESP, XRay, Tracers, LightESP, etc. |
 | `CHEAT_MODULE_EVASION` | FakeLag, PingSpoof, SelfDestruct, etc. |
+| `CHEAT_MODULE_WORLD` | NewChunks, StashFinder, BaseFinder, etc. |
+| `OBFUSCATION` | EncryptedString, AntiDebug, AntiDump, ProGuard, ZKM, etc. |
+| `MIXIN_BYTECODE` | SpongePowered Mixin, @Inject/@Redirect, Forge CoreMods |
+| `EVENT_BUS` | PreMotionEvent, PacketEvent, @Subscribe, onMotion, etc. |
+| `ROTATION_AIM` | RotationManager, SilentRotation, AimProcessor, etc. |
+| `PACKET_MANIPULATION` | PacketInterceptor, PacketCancel, ChannelInterceptor, etc. |
 | `CHEAT_INJECTOR` | Bytecode injection and Java-Agent signatures |
 | `CHEAT_CONFIG` | Cheat configuration files and references |
 | `INJECTION_API_*` | Process, window, memory, and execution injection APIs |
@@ -123,6 +147,15 @@ Patterns are compiled into an Aho-Corasick automaton for simultaneous multi-patt
 | **MEDIUM** | 20+ | Some cheat patterns detected |
 | **LOW** | 10+ | Minor suspicious patterns |
 | **CLEAN** | <10 | No significant cheat patterns found |
+
+### Confidence Levels
+
+| Confidence | Unique Patterns | Meaning |
+|------------|----------------|---------|
+| **High** | 15+ | Strong evidence across multiple categories |
+| **Medium** | 8+ | Moderate evidence, likely a cheat |
+| **Low** | 3+ | Some indicators, inconclusive |
+| **Very Low** | <3 | Minimal evidence, may be false positive |
 
 ### Special Client Handling
 
@@ -140,7 +173,7 @@ Yumiko detects the Argon ghost client through its package paths (`dev.lvstrng.ar
 
 The scanner generates a color-coded console report including:
 - Process information (PID, name, type, version, command line)
-- Threat level and score
+- Threat level, score, and confidence
 - Detailed reasons for the threat assessment
 - Found cheat patterns grouped by category with memory addresses and context
 
@@ -148,7 +181,7 @@ The scanner generates a color-coded console report including:
 
 Scan results are also saved as JSON files (`cheat_scan_YYYYMMDD_HHMMSS.json`) containing:
 - Process metadata
-- Threat assessment (level, score, reasons)
+- Threat assessment (level, score, confidence, reasons)
 - All found patterns with addresses and context strings
 
 ## Detected Clients
@@ -180,6 +213,8 @@ Yumiko-Memory-Analyzer/
 ├── requirements.txt             # Python dependencies
 ├── CHANGELOG.md                 # Version history
 ├── DISCORD_UPDATE.md            # Discord announcement template
+├── DISCORD_CHANGELOG_v2.1.md    # Discord changelog v2.1
+├── RELEASE_v2.0.md              # Release notes v2.0
 └── README.md                    # This file
 ```
 
@@ -199,7 +234,7 @@ Yumiko Memory Analyzer is intended for **server administrators and anti-cheat de
 
 - **GitHub:** [https://github.com/veridondevvv](https://github.com/veridondevvv)
 - **Discord:** veridondevvv
-- **Version:** 2.0
+- **Version:** 2.1
 
 ---
 
