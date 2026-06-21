@@ -33,7 +33,14 @@ Unlike file-based scanners, Yumiko operates on live process memory — meaning i
 - **Rotation / Aim detection** — identifies rotation managers, silent aim, and aim processors used by advanced clients
 - **Packet Manipulation detection** — detects packet interception, modification, spoofing, and Netty channel manipulation
 - **Obfuscation detection** — identifies string/code obfuscation, anti-analysis tools, and reflection/unsafe hacks
+- **Config / Settings detection** — detects cheat client config systems (`ConfigManager`, `SettingsManager`, `modules.json`, `clickgui.json`)
+- **Command System detection** — detects cheat command handlers (`CommandManager`, `.toggle`, `.bind`, `.panic`, `setPrefix`)
+- **HUD / ClickGUI detection** — detects custom GUI frameworks (`ClickGUI`, `HUDManager`, `Watermark`, `ArrayListRender`, `TabGui`)
+- **Friend System detection** — detects friend/enemy/target management (`FriendManager`, `isFriend`, `EnemyManager`, `friends.json`)
 - **Confidence Level** — rates detection confidence (High / Medium / Low / Very Low) based on unique pattern count
+- **Category Cross-Referencing** — boosts score when multiple advanced categories match simultaneously (3+ = +15)
+- **Legitimate Mod Whitelist** — reduces score when legit clients (Lunar, Badlion, OptiFine, etc.) are detected
+- **Heuristic Mode** — flags unknown cheat clients when 3+ framework categories match without a known client
 - **Obfuscation boost** — increases threat score when obfuscation is combined with other cheat patterns
 - **Injection API detection** — identifies process, window, memory, and execution injection techniques
 - **Threat scoring** — assigns CLEAN / LOW / MEDIUM / HIGH / CRITICAL levels with detailed reasons
@@ -134,6 +141,10 @@ Patterns are compiled into an Aho-Corasick automaton for simultaneous multi-patt
 | `EVENT_BUS` | PreMotionEvent, PacketEvent, @Subscribe, onMotion, etc. |
 | `ROTATION_AIM` | RotationManager, SilentRotation, AimProcessor, etc. |
 | `PACKET_MANIPULATION` | PacketInterceptor, PacketCancel, ChannelInterceptor, etc. |
+| `CONFIG_SETTINGS` | ConfigManager, SettingsManager, modules.json, clickgui.json, etc. |
+| `COMMAND_SYSTEM` | CommandManager, .toggle, .bind, .panic, setPrefix, etc. |
+| `HUD_CLICKGUI` | ClickGUI, HUDManager, Watermark, ArrayListRender, TabGui, etc. |
+| `FRIEND_SYSTEM` | FriendManager, isFriend, EnemyManager, friends.json, etc. |
 | `CHEAT_INJECTOR` | Bytecode injection and Java-Agent signatures |
 | `CHEAT_CONFIG` | Cheat configuration files and references |
 | `INJECTION_API_*` | Process, window, memory, and execution injection APIs |
@@ -156,6 +167,20 @@ Patterns are compiled into an Aho-Corasick automaton for simultaneous multi-patt
 | **Medium** | 8+ | Moderate evidence, likely a cheat |
 | **Low** | 3+ | Some indicators, inconclusive |
 | **Very Low** | <3 | Minimal evidence, may be false positive |
+
+### Advanced Detection Logic
+
+#### Category Cross-Referencing
+
+When 3 or more advanced framework categories (Mixin, Event Bus, Rotation/Aim, Packet Manipulation, Config, Command, HUD, Friend System) are detected simultaneously, an additional +15 is added to the score. This reflects that legitimate mods rarely trigger multiple framework categories at once.
+
+#### Legitimate Mod Whitelist
+
+When legitimate client patterns (Lunar Client, Badlion Client, OptiFine, Feather, Essential, LabyMod, etc.) are found in `MINECRAFT_IDENTIFIER` hits, the score is reduced by 10 (if score ≥ 20). This helps reduce false positives from performance mods and legitimate clients.
+
+#### Heuristic Mode
+
+When no known cheat client is matched but 3+ advanced framework categories are detected with a score ≥ 30, the scanner adds +10 and reports "Heuristic: unknown cheat client suspected". This catches novel or rebranded clients that don't match existing signatures.
 
 ### Special Client Handling
 
