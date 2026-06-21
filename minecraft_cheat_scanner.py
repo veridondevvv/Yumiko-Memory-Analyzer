@@ -26,7 +26,7 @@ from collections import defaultdict
 GITHUB_URL = "https://github.com/veridondevvv"
 DISCORD_TAG = "veridondevvv"
 SCANNER_NAME = "Yumiko Memory Analyzer"
-SCANNER_VERSION = "2.0"
+SCANNER_VERSION = "2.1"
 
 RESET   = "\033[0m"
 BOLD    = "\033[1m"
@@ -1031,6 +1031,176 @@ PACKET_MANIPULATION_PATTERNS = [
     b"PacketS4F",
 ]
 
+CONFIG_SETTINGS_PATTERNS = [
+    b"modules.json", b"modules-config", b"modulesettings",
+    b"settings.json", b"settings-config",
+    b"clickgui.json", b"clickgui-config", b"clickguipos",
+    b"hud.json", b"hud-config", b"hudsettings",
+    b"bindManager", b"bindmanager",
+    b"colorSettings", b"colorsettings",
+    b"moduleConfig", b"moduleconfig",
+    b"ModuleSettings", b"modulesettings",
+    b"ConfigManager", b"configmanager",
+    b"SettingsManager", b"settingsmanager",
+    b"PreferenceManager", b"preferencemanager",
+    b"ConfigLoader", b"configloader",
+    b"SettingsLoader", b"settingsloader",
+    b"JsonConfig", b"jsonconfig",
+    b"YamlConfig", b"yamlconfig",
+    b"ConfigSerializer", b"configserializer",
+    b"ConfigDeserializer", b"configdeserializer",
+    b"SaveConfig", b"saveconfig",
+    b"LoadConfig", b"loadconfig",
+    b"ResetConfig", b"resetconfig",
+    b"DefaultConfig", b"defaultconfig",
+    b"ProfileManager", b"profilemanager",
+    b"ProfileLoader", b"profileloader",
+    b"SaveProfile", b"saveprofile",
+    b"LoadProfile", b"loadprofile",
+    b"ThemeManager", b"thememanager",
+    b"ColorManager", b"colormanager",
+    b"FontManager", b"fontmanager",
+    b"KeyBindManager", b"keybindmanager",
+    b"BindSet", b"bindset",
+    b"KeyBinding", b"keybinding-cheat",
+    b"ToggleBind", b"togglebind",
+    b"BindCommand", b"bindcommand",
+]
+
+COMMAND_SYSTEM_PATTERNS = [
+    b"CommandManager", b"commandmanager",
+    b"CommandBase", b"commandbase",
+    b"ChatCommand", b"chatcommand",
+    b"PrefixCommand", b"prefixcommand",
+    b"CommandProcessor", b"commandprocessor",
+    b"CommandDispatcher", b"commanddispatcher",
+    b"CommandHandler", b"commandhandler-cheat",
+    b"CommandRegistry", b"commandregistry",
+    b"CommandExecutor", b"commandexecutor",
+    b"AbstractCommand", b"abstractcommand",
+    b"CommandAnnotation", b"commandannotation",
+    b".toggle", b".bind", b".set", b".config",
+    b".friend", b".enemy", b".target",
+    b".enable", b".disable", b".toggle",
+    b".save", b".load", b".reset",
+    b".prefix", b".watermark", b".clientname",
+    b".gui", b".clickgui", b".hud",
+    b".selfdestruct", b".panic",
+    b"CommandPrefix", b"commandprefix",
+    b"setPrefix", b"setprefix",
+    b"getPrefix", b"getprefix",
+    b"ChatListener", b"chatlistener",
+    b"ChatProcessor", b"chatprocessor",
+    b"MessageHandler", b"messagehandler-cheat",
+    b"onChatMessage", b"onchatmessage",
+    b"handleCommand", b"handlecommand",
+    b"processCommand", b"processcommand",
+    b"executeCommand", b"executecommand",
+    b"registerCommand", b"registercommand",
+    b"unregisterCommand", b"unregistercommand",
+    b"CommandList", b"commandlist",
+    b"HelpCommand", b"helpcommand",
+    b"ToggleCommand", b"togglecommand",
+    b"BindCommand", b"bindcommand-cheat",
+    b"ConfigCommand", b"configcommand",
+    b"FriendCommand", b"friendcommand",
+    b"PanicCommand", b"paniccommand",
+    b"WatermarkCommand", b"watermarkcommand",
+]
+
+HUD_CLICKGUI_PATTERNS = [
+    b"ClickGUI", b"ClickGui", b"clickgui",
+    b"HUDManager", b"HudManager", b"hudmanager",
+    b"DraggableComponent", b"draggablecomponent",
+    b"DraggableElement", b"draggableelement",
+    b"ModuleButton", b"modulebutton",
+    b"CategoryPanel", b"categorypanel",
+    b"CategoryButton", b"categorybutton",
+    b"ColorPicker", b"colorpicker",
+    b"ColorSlider", b"colorslider",
+    b"SliderComponent", b"slidercomponent",
+    b"CheckBox", b"checkbox-cheat",
+    b"ToggleButton", b"togglebutton-cheat",
+    b"EnumButton", b"enumbutton",
+    b"ModeButton", b"modebutton",
+    b"ValueSlider", b"valueslider",
+    b"NumberSlider", b"numberslider",
+    b"ModulePanel", b"modulepanel",
+    b"ModuleList", b"modulelist-gui",
+    b"WindowComponent", b"windowcomponent",
+    b"FrameComponent", b"framecomponent",
+    b"TabComponent", b"tabcomponent",
+    b"GuiScreen", b"guiscreen-cheat",
+    b"GuiRender", b"guirender",
+    b"RenderManager", b"rendermanager-cheat",
+    b"DrawManager", b"drawmanager",
+    b"RenderHelper", b"renderhelper-cheat",
+    b"FontRenderer", b"fontrenderer-cheat",
+    b"TextRenderer", b"textrenderer",
+    b"RenderUtil", b"renderutil",
+    b"DrawUtil", b"drawutil",
+    b"ColorUtil", b"colorutil",
+    b"GuiUtil", b"guiutil",
+    b"ScreenUtil", b"screenutil",
+    b"Render2D", b"render2d",
+    b"Render3D", b"render3d",
+    b"Watermark", b"watermark",
+    b"WatermarkRender", b"watermarkrender",
+    b"ArrayListRender", b"arraylistrender",
+    b"ArrayList", b"arraylist-cheat",
+    b"TabGui", b"tabgui",
+    b"TabGUI", b"TabGuiRender",
+    b"Notifications", b"notifications-cheat",
+    b"NotificationManager", b"notificationmanager",
+    b"NotificationRender", b"notificationrender",
+    b"IngameHUD", b"ingamehud",
+    b"HUDRender", b"hudrender",
+    b"HUDOverlay", b"hudoverlay",
+    b"Keystrokes", b"keystrokes",
+    b"KeystrokesRender", b"keystrokesrender",
+    b"ArmorHUD", b"armorhud",
+    b"PotionHUD", b"potionhud",
+    b"Coordinates", b"coordinates-hud",
+    b"FPSDisplay", b"fpsdisplay",
+    b"CPSCounter", b"cpscounter",
+    b"ReachDisplay", b"reachdisplay",
+]
+
+FRIEND_SYSTEM_PATTERNS = [
+    b"FriendManager", b"friendmanager",
+    b"FriendList", b"friendlist",
+    b"FriendCommand", b"friendcommand",
+    b"isFriend", b"isfriend",
+    b"addFriend", b"addfriend",
+    b"removeFriend", b"removefriend",
+    b"getFriends", b"getfriends",
+    b"FriendEntry", b"friendentry",
+    b"FriendData", b"frienddata",
+    b"EnemyManager", b"enemymanager",
+    b"EnemyList", b"enemylist",
+    b"isEnemy", b"isenemy",
+    b"addEnemy", b"addenemy",
+    b"removeEnemy", b"removeenemy",
+    b"TargetManager", b"targetmanager",
+    b"TargetList", b"targetlist",
+    b"isTarget", b"istarget",
+    b"addTarget", b"addtarget",
+    b"removeTarget", b"removetarget",
+    b"getTargets", b"gettargets",
+    b"TeamManager", b"teammanager",
+    b"isTeammate", b"isteammate",
+    b"getTeam", b"getteam",
+    b"SortFriends", b"sortfriends",
+    b"FriendComparator", b"friendcomparator",
+    b"FriendSerializer", b"friendserializer",
+    b"FriendDeserializer", b"frienddeserializer",
+    b"saveFriends", b"savefriends",
+    b"loadFriends", b"loadfriends",
+    b"friendFile", b"friendfile",
+    b"friends.json", b"enemies.json",
+    b"targets.json",
+]
+
 CHEAT_MODULE_CATEGORIES = {
     "COMBAT": CHEAT_MODULES_COMBAT,
     "CRYSTAL_ANCHOR": CHEAT_MODULES_CRYSTAL_ANCHOR,
@@ -1114,6 +1284,10 @@ ALL_SCAN_CATEGORIES = {
     "EVENT_BUS": EVENT_BUS_PATTERNS,
     "ROTATION_AIM": ROTATION_AIM_PATTERNS,
     "PACKET_MANIPULATION": PACKET_MANIPULATION_PATTERNS,
+    "CONFIG_SETTINGS": CONFIG_SETTINGS_PATTERNS,
+    "COMMAND_SYSTEM": COMMAND_SYSTEM_PATTERNS,
+    "HUD_CLICKGUI": HUD_CLICKGUI_PATTERNS,
+    "FRIEND_SYSTEM": FRIEND_SYSTEM_PATTERNS,
     "CHEAT_INJECTOR": CHEAT_INJECTORS,
     "CHEAT_CONFIG": CHEAT_CONFIG_SIGNATURES,
     "MINECRAFT_IDENTIFIER": MINECRAFT_IDENTIFIERS,
@@ -1196,6 +1370,10 @@ _STRING_KEYWORDS = frozenset([
     "iclasstransformer", "premotionevent", "postmotionevent",
     "rotationmanager", "silentrotation", "aimprocessor",
     "packetinterceptor", "packetcancel", "packetspoof",
+    "configmanager", "settingsmanager", "clickgui",
+    "commandmanager", "commandprefix", "paniccommand",
+    "hudmanager", "watermark", "arraylistrender", "tabgui",
+    "friendmanager", "friendlist", "enemymanager",
 ])
 
 _KW_SORTED = sorted(_STRING_KEYWORDS, key=len, reverse=True)
@@ -2119,6 +2297,120 @@ def assess_threat_level(scan_result, suspicious_modules=None, proc_info=None):
         elif len(unique_pkt) >= 5:
             score += 8
             reasons.append(f"Packet handling indicators: {len(unique_pkt)} unique")
+
+    # Config / Settings scoring
+    config_hits = scan_result.found_patterns.get("CONFIG_SETTINGS", [])
+    if config_hits:
+        unique_cfg = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in config_hits)
+        high_risk_cfg = {
+            "modules.json", "clickgui.json", "hud.json",
+            "ConfigManager", "configmanager",
+            "SettingsManager", "settingsmanager",
+            "ProfileManager", "profilemanager",
+            "KeyBindManager", "keybindmanager",
+            "bindManager", "bindmanager",
+        }
+        high_risk_cfg_found = unique_cfg & high_risk_cfg
+        if high_risk_cfg_found:
+            score += 15
+            reasons.append(f"Cheat config / settings system: {', '.join(sorted(high_risk_cfg_found))}")
+        elif len(unique_cfg) >= 3:
+            score += 5
+            reasons.append(f"Config indicators: {len(unique_cfg)} unique")
+
+    # Command System scoring
+    cmd_hits = scan_result.found_patterns.get("COMMAND_SYSTEM", [])
+    if cmd_hits:
+        unique_cmd = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in cmd_hits)
+        high_risk_cmd = {
+            "CommandManager", "commandmanager",
+            "CommandProcessor", "commandprocessor",
+            "CommandDispatcher", "commanddispatcher",
+            ".toggle", ".bind", ".selfdestruct", ".panic",
+            "PanicCommand", "paniccommand",
+            "setPrefix", "setprefix",
+            "executeCommand", "executecommand",
+        }
+        high_risk_cmd_found = unique_cmd & high_risk_cmd
+        if high_risk_cmd_found:
+            score += 15
+            reasons.append(f"Cheat command system: {', '.join(sorted(high_risk_cmd_found))}")
+        elif len(unique_cmd) >= 3:
+            score += 5
+            reasons.append(f"Command indicators: {len(unique_cmd)} unique")
+
+    # HUD / ClickGUI scoring
+    hud_hits = scan_result.found_patterns.get("HUD_CLICKGUI", [])
+    if hud_hits:
+        unique_hud = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in hud_hits)
+        high_risk_hud = {
+            "ClickGUI", "ClickGui", "clickgui",
+            "HUDManager", "HudManager", "hudmanager",
+            "DraggableComponent", "draggablecomponent",
+            "ModuleButton", "modulebutton",
+            "Watermark", "watermark",
+            "ArrayListRender", "arraylistrender",
+            "TabGui", "TabGUI", "tabgui",
+            "NotificationManager", "notificationmanager",
+        }
+        high_risk_hud_found = unique_hud & high_risk_hud
+        if high_risk_hud_found:
+            score += 15
+            reasons.append(f"Cheat HUD / ClickGUI system: {', '.join(sorted(high_risk_hud_found))}")
+        elif len(unique_hud) >= 3:
+            score += 5
+            reasons.append(f"HUD indicators: {len(unique_hud)} unique")
+
+    # Friend System scoring
+    friend_hits = scan_result.found_patterns.get("FRIEND_SYSTEM", [])
+    if friend_hits:
+        unique_friend = set(h["pattern"].decode("ascii", "replace") if isinstance(h["pattern"], bytes) else h["pattern"] for h in friend_hits)
+        high_risk_friend = {
+            "FriendManager", "friendmanager",
+            "FriendList", "friendlist",
+            "isFriend", "isfriend",
+            "addFriend", "addfriend",
+            "EnemyManager", "enemymanager",
+            "TargetManager", "targetmanager",
+            "friends.json",
+        }
+        high_risk_friend_found = unique_friend & high_risk_friend
+        if high_risk_friend_found:
+            score += 10
+            reasons.append(f"Cheat friend / target system: {', '.join(sorted(high_risk_friend_found))}")
+        elif len(unique_friend) >= 3:
+            score += 3
+            reasons.append(f"Friend system indicators: {len(unique_friend)} unique")
+
+    # Category Cross-Referencing — multiple advanced categories together = almost certainly a cheat client
+    advanced_cats_present = sum(1 for cat in ["MIXIN_BYTECODE", "EVENT_BUS", "ROTATION_AIM",
+                                               "PACKET_MANIPULATION", "CONFIG_SETTINGS",
+                                               "COMMAND_SYSTEM", "HUD_CLICKGUI", "FRIEND_SYSTEM"]
+                                if scan_result.found_patterns.get(cat, []))
+    if advanced_cats_present >= 3:
+        score += 15
+        reasons.append(f"Category cross-reference: {advanced_cats_present} advanced categories detected simultaneously")
+    elif advanced_cats_present >= 2:
+        score += 5
+
+    # Legitimate Mod Whitelist — reduce score if legit client patterns are present
+    legit_patterns = set()
+    for h in scan_result.found_patterns.get("MINECRAFT_IDENTIFIER", []):
+        p = h["pattern"].decode("ascii", "replace").lower() if isinstance(h["pattern"], bytes) else h["pattern"].lower()
+        if any(lg in p for lg in ["lunar client", "badlion client", "feather", "essential",
+                                   "optifine", "optifabric", "labymod", "pvplounge",
+                                   "salwyrr", "mcpclient", "cleanroom"]):
+            legit_patterns.add(p)
+    if legit_patterns and score >= 20:
+        score -= 10
+        reasons.append(f"Legitimate client detected (score reduced): {', '.join(sorted(legit_patterns)[:3])}")
+
+    # Heuristic Mode — unknown cheat client suspected when multiple categories match but no known client
+    known_client_matched = bool(scan_result.found_patterns.get("CHEAT_CLIENT", []))
+    if not known_client_matched and not argon_active and not argon_selfdestructed and not doomsday_active:
+        if advanced_cats_present >= 3 and score >= 30:
+            score += 10
+            reasons.append("Heuristic: unknown cheat client suspected (multiple framework categories matched, no known client)")
 
     # Obfuscation boost — if obfuscation is present AND other cheat patterns found, boost score
     obf_present = bool(scan_result.found_patterns.get("OBFUSCATION", []))
